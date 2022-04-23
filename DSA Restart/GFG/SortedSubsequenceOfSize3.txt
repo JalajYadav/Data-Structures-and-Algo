@@ -1,0 +1,39 @@
+Link>>>>https://practice.geeksforgeeks.org/problems/sorted-subsequence-of-size-3/1/?track=amazon-arrays&batchId=192#
+
+Solution:  
+
+class Solution{
+  public:
+    vector<int> find3Numbers(vector<int> arr, int N) {
+        // Your code here
+          if(N<3)return {};
+        vector<int> left;
+        vector<int> right(N,0);
+        left.push_back(arr[0]);
+        for(int i=1;i<N;i++){
+            if(arr[i]<left[i-1]){
+                left[i]=arr[i];
+            }else{
+                left[i]=left[i-1];
+            }
+        }
+        right[N-1]=arr[N-1];
+        for(int j=N-2;j>=0;j--){
+            if(arr[j]>right[j+1]){
+                right[j]=arr[j];
+            }else{
+                right[j]=right[j+1];
+            }
+        }
+        vector<int>res;
+        for(int i=1;i<N-1;i++){
+            if(left[i-1]<arr[i] and right[i+1]>arr[i]){
+                res.push_back(left[i-1]);
+                res.push_back(arr[i]);
+                res.push_back(right[i+1]);
+                return res;
+            }
+        }
+        return {};
+    }
+};
