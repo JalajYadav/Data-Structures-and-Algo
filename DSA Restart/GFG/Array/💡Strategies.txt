@@ -1,0 +1,6 @@
+These are some of the strategies that can be commonly used upon arrays.
+
+> Right-left
+    This is a strategy used preferably in the Rain Trap Problem 2 arrays are maintained 
+    to carry largest/smallest number/index from left/right side as per the logic.
+    Link of image: https://leetcode.com/problems/trapping-rain-water/Figures/42/trapping_rain_water.png
