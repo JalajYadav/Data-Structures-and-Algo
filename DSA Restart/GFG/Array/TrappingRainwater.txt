@@ -1,5 +1,7 @@
 //🌟Based on Famous concept of dual array 
 
+    Trapping Rainwater Problem
+
 Solution:
 
 class Solution{
