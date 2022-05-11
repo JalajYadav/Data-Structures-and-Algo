@@ -1,0 +1,5 @@
+These are some of the strategies that can be commonly used upon arrays.
+
+>   Binary Search  
+    General Serching strategies involve running a binary search to find the element
+    that we do not have.
