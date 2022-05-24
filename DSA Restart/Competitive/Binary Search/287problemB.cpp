@@ -1,4 +1,4 @@
-//Link: https://codeforces.com/contest/287/problem/B
+// Link: https://codeforces.com/contest/287/problem/B
 
 // B. Pipeline
 // time limit per test0.4 seconds
