@@ -1,0 +1,36 @@
+
+Link: https://practice.geeksforgeeks.org/problems/quick-sort/1
+
+Solution:
+
+void swap(int *a,int *b){
+        int t= *a;
+        *a = *b;
+        *b = t;
+    }
+    void quickSort(int arr[], int low, int high)
+    {
+        // code here
+        if(low<high){
+            int part = partition(arr,low,high);
+            
+            quickSort(arr,low,part-1);
+            quickSort(arr,part+1,high);
+        }
+    }
+    
+    public:
+    int partition (int arr[], int low, int high)
+    {
+       // Your code here
+       int i = low-1;
+       int pivot = arr[high];
+       for(int j = low;j<high;j++){
+           if(arr[j]<pivot){
+               i++;
+               swap(&arr[i],&arr[j]);
+           }
+       }
+       swap(&arr[high],&arr[i+1]);
+    return i+1;
+    }
