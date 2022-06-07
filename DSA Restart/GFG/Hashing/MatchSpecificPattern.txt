@@ -1,0 +1,32 @@
+
+Link: https://practice.geeksforgeeks.org/problems/match-specific-pattern/1
+
+Solution:
+
+string numberify(string x){
+    unordered_set<char>uset;
+    string res = "";
+    int cnt=0;
+    for(int i=0;i<x.length();i++){
+        if(uset.find(x[i])==uset.end()){
+            uset.insert(x[i]);
+            cnt++;
+        }
+        res =res + to_string(cnt);
+    }
+    uset.erase(uset.begin(),uset.end());
+    return res;
+}
+vector<string> findMatchedWords(vector<string> dict,string pattern)
+{
+       //Your code here
+       vector<string> res;
+       string patternNum = numberify(pattern);
+       for(int i=0;i<dict.size();i++){
+        if(patternNum==numberify(dict[i])){
+            res.push_back(dict[i]);
+        }
+       }
+       
+       return res;
+}
