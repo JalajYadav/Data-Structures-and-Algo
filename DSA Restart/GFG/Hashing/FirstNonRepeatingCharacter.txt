@@ -1,0 +1,24 @@
+
+Link:https://practice.geeksforgeeks.org/problems/non-repeating-character0926/0
+
+Solution:
+
+string find(string S) {
+    //code here
+    
+    unordered_map<char,int>ump;
+    
+    for(int i=0;i<S.length();i++){
+            ump[S[i]]++;
+    }
+    
+    string res = "";
+   for(int i=0;i<S.length();i++){
+        if(ump[S[i]]==1){
+            res+=S[i];
+            return res;
+        }
+    }
+    
+    return "-1";
+}
