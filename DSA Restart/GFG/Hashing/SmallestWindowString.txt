@@ -1,0 +1,47 @@
+
+Link: https://practice.geeksforgeeks.org/problems/smallest-window-in-a-string-containing-all-the-characters-of-another-string-1587115621/0
+
+Solution:
+
+    //Function to find the smallest window in the string s consisting
+    //of all the characters of string p.
+    string smallestWindow (string s, string p)
+    {
+        // Your code here
+        if(p.size()>s.size()){
+            return "-1";
+        }
+        
+        unordered_map<char,int> ump;
+        for(int i=0;i<p.size();i++){
+            ump[p[i]]++;
+        }
+        int distinct_cnt = ump.size();
+        int i(0),k(0);
+        int end = s.size();
+        int start;
+        while(k<s.size()){
+            if(ump.find(s[k])!=ump.end()){
+                ump[s[k]]--;
+                if(ump[s[k]]==0){
+                    distinct_cnt--;
+                }
+            }
+            while(distinct_cnt==0){
+                //while we still have the string construct
+                if(end>k-i+1){
+                    end = k-i+1;
+                    start = i;
+                }
+                if(ump.find(s[i])!=ump.end()){
+                    ump[s[i]]++;
+                    if(ump[s[i]]==1){
+                    distinct_cnt++;
+                    }
+                }
+                i++;
+            }
+            k++;
+        }
+        return end==s.size()? "-1":s.substr(start,end);
+    }
