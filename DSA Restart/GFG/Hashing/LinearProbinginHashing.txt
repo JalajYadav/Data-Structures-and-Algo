@@ -1,0 +1,30 @@
+Link >> https://practice.geeksforgeeks.org/problems/linear-probing-in-hashing-1587115620/0
+
+Solution:
+
+vector<int> linearProbing(int hashSize, int arr[], int sizeOfArray)
+    {
+        //Your code here
+         vector<int>ans(hashSize,-1);
+         
+         for(int i=0;i<sizeOfArray;i++){
+             int tmp = arr[i]%hashSize;
+             if(ans[tmp]==-1 or ans[tmp] == arr[i]){
+                 ans[tmp] = arr[i];
+             }
+             else{
+                 int k = 1;
+                 int tmp2 = (tmp+k)%hashSize;
+                 while(tmp2!=tmp){
+                     
+                     if(ans[tmp2]==-1 or ans[tmp2] == arr[i]){
+                         ans[tmp2] = arr[i];
+                         break;
+                     }
+                     k++;
+                     tmp2 = (tmp+k)%hashSize;
+                 }
+             }
+         }
+         return ans;
+    }
