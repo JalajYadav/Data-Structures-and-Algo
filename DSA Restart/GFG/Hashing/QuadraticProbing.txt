@@ -1,0 +1,28 @@
+Link >> https://practice.geeksforgeeks.org/problems/quadratic-probing-in-hashing-1587115621/0
+
+Solution:
+
+ void QuadraticProbing(vector <int>&hash, int hashSize, int arr[], int N)
+    {
+        //Your code here
+        
+         for(int i=0;i<N;i++){
+             int tmp = arr[i]%hashSize;
+             if(hash[tmp]==-1 or hash[tmp] == arr[i]){
+                 hash[tmp] = arr[i];
+             }
+             else{
+                 int k = 1;
+                 int tmp2 = (tmp+(k*k))%hashSize;
+                 while(tmp2!=tmp){
+                     
+                     if(hash[tmp2]==-1 or hash[tmp2] == arr[i]){
+                         hash[tmp2] = arr[i];
+                         break;
+                     }
+                     k++;
+                     tmp2 = (tmp+(k*k))%hashSize;
+                 }
+             }
+         }
+    }
