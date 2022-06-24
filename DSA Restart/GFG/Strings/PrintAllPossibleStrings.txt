@@ -1,0 +1,47 @@
+Link>> https://practice.geeksforgeeks.org/problems/print-all-possible-strings/0
+
+2. Print all possible strings 
+Easy Accuracy: 50.0% Submissions: 10136 Points: 2
+Given a string str your task is to complete the function spaceString which takes only one argument the string str and  finds all possible strings that can be made by placing spaces (zero or one) in between them. 
+
+For eg .  for the string abc all valid strings will be
+                abc
+                ab c
+                a bc
+                a b c
+
+Example 1:
+
+Input:
+str = abc
+Output: abc$ab c$a bc$a b c$
+
+Solution>>
+
+void recurfunc(int x,string carry,char str[],vector<string>&ans){
+    if(x==strlen(str)){
+        ans.push_back(carry);
+        return;
+    }
+    
+    string temp2 = carry;
+    temp2 = temp2 + str[x];
+    recurfunc(x+1,temp2,str,ans);
+    
+    string temp1 = carry;
+    temp1 = temp1+" ";
+    temp1 = temp1+str[x];
+    recurfunc(x+1,temp1,str,ans);
+    
+    
+    
+}
+vector<string>  spaceString(char str[])
+{
+//Your code here
+    vector<string> ans;
+    string carry = "";
+    carry = carry+ str[0];
+    recurfunc(1,carry,str,ans);
+    return ans;
+}

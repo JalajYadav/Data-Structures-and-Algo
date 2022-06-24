@@ -1,0 +1,4 @@
+//  >>Converting to int shorthand syntactic sugar for character data types
+    >> 'b' - 'a'
+    Subtracting 'a' gives the value 1 and so on
+
