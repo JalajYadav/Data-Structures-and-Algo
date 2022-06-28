@@ -1,0 +1,47 @@
+Link >> https://practice.geeksforgeeks.org/problems/roman-number-to-integer3201/0
+
+Description >> -----------------------------------------------------------------------------------
+
+Roman Number to Integer
+
+Given a string in roman no format (s)  your task is to convert it to an integer . Various symbols and their values are given below.
+I 1
+V 5
+X 10
+L 50
+C 100
+D 500
+M 1000
+
+Example 1:
+
+Input:
+s = V
+Output: 5
+
+Solution >> --------------------------------------------------------------------------------------
+
+int romanToDecimal(string &str) {
+        // code here
+        unordered_map<char,int>mp;
+         mp.insert({ 'I', 1 });
+         mp.insert({ 'V', 5 });
+         mp.insert({ 'X', 10 });
+         mp.insert({ 'L', 50 });
+         mp.insert({ 'C', 100 });
+         mp.insert({ 'D', 500 });
+         mp.insert({ 'M', 1000 });
+         
+         int n = str.length();
+        int res = mp[str[n-1]];
+        for(int i = n-2; i>=0; i--) {
+            if(mp[str[i]] < mp[str[i+1]]) {
+                res -= mp[str[i]];
+            }
+            else {
+                res += mp[str[i]];
+            }
+        }
+        
+        return res;
+    }
